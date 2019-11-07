@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>IBM Speech to Text</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/jquery-3.4.1.min.js"></script>
+    <script src="/javascripts/audio.js"></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Audio recorder</h1>
+    <button id="start" onclick="startRecording()">Start recording</button>
+    <button id="stop" onclick="stopRecording()" disabled>Stop recording</button>
+    <button id="play" onclick="playRecording()" disabled>Play recording</button>
+    <button id="analyse" onclick="analyze()" disabled>IBM Speech to Text Analyse</button>
+    <p id="res"></p>
   </body>
 </html>
