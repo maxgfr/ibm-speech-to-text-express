@@ -1,6 +1,6 @@
 # ibm-speech-to-text-express
 
-Boilerplate using Express and IBM Speech to text
+The boilerplate provides an application which uses IBM Speech to Text in an ExpressJS application.
 
 ## Configuration
 
@@ -14,3 +14,8 @@ Boilerplate using Express and IBM Speech to text
 ```
     npm start
 ```
+
+## Screenshot
+
+
+![alt text](https://github.com/maxgfr/ibm-speech-to-text-express/blob/master/.github/screen1.png)
