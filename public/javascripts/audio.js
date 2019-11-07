@@ -68,8 +68,8 @@ const analyze = async () => {
       processData: false,
       contentType: false
   }).done((data) => {
-      console.log(data);
-      //document.getElementById("res").innerHTML = 'YOOOOO';
+      //console.log(data);
+      document.getElementById("res").innerHTML = data[0].alternatives[0].transcript;
   });
 
 }

@@ -13,33 +13,36 @@ const speechToText = new SpeechToTextV1({
   url: process.env.SPEECH_TO_TEXT_URL,
 });
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index');
 });
 
 router.post('/speech', upload.any(), function(req, res, next) {
   //console.log(req.body, req.files);
-  fs.writeFile('./upload/'+req.files[0].originalname+'.wav', req.files[0].buffer, (err) => {
-        if (err) {
-            console.log(err);
-            res.json({error: err, success: false});
-        } else {
-          const params = {
-            audio: fs.createReadStream('./upload/blob.wav'),
-            contentType: 'audio/l16; rate=44100'
-          };
-          speechToText.recognize(params)
-            .then(response => {
-              console.log(JSON.stringify(response.result, null, 2));
-              res.json({result: response.result, success: true});
-            })
-            .catch(err => {
+  /*
+    fs.writeFile('./upload/'+req.files[0].originalname+'.wav', req.files[0].buffer, (err) => {
+          if (err) {
               console.log(err);
               res.json({error: err, success: false});
-            });
-        }
+          } else {
+            console.log('success');
+          }
+      });
+    */
+  const recognizeParams = {
+    audio: req.files[0].buffer,
+    contentType: req.files[0].mimetype,
+    model: 'fr-FR_BroadbandModel'
+  };
+  speechToText.recognize(recognizeParams)
+    .then(response => {
+      //console.log(JSON.stringify(response.result, null, 2));
+      res.json({result: response.result.results, success: true});
+    })
+    .catch(err => {
+      console.log(err);
+      res.json({error: err, success: false});
     });
-})
+});
 
 module.exports = router;
