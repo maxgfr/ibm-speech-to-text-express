@@ -69,7 +69,7 @@ const analyze = async () => {
       contentType: false
   }).done((data) => {
       //console.log(data);
-      document.getElementById("res").innerHTML = data[0].alternatives[0].transcript;
+      document.getElementById("res").innerHTML = data.result[0].alternatives[0].transcript;
   });
 
 }

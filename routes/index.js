@@ -19,16 +19,14 @@ router.get('/', function(req, res, next) {
 
 router.post('/speech', upload.any(), function(req, res, next) {
   //console.log(req.body, req.files);
-  /*
-    fs.writeFile('./upload/'+req.files[0].originalname+'.wav', req.files[0].buffer, (err) => {
+  /* fs.writeFile('./upload/'+req.files[0].originalname+'.wav', req.files[0].buffer, (err) => {
           if (err) {
               console.log(err);
               res.json({error: err, success: false});
           } else {
             console.log('success');
           }
-      });
-    */
+      }); */
   const recognizeParams = {
     audio: req.files[0].buffer,
     contentType: req.files[0].mimetype,

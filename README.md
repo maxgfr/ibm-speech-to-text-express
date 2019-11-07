@@ -8,3 +8,9 @@ Boilerplate using Express and IBM Speech to text
     mv .env.example .env # AND SET YOUR OWN CREDENTIALS
     npm install
 ```
+
+## Launch the application
+
+```
+    npm start
+```
